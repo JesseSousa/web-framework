@@ -4,5 +4,8 @@ const user = new User({ name: 'myName', age: 20 });
 
 user.set({ name: 'newName', age: 99 });
 
-console.log(user.get('name'));
-console.log(user.get('age'));
+user.on('change', () => {
+  console.log('change event handler was called');
+});
+
+user.trigger('change');
